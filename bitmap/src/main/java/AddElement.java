@@ -24,7 +24,7 @@ public class AddElement {
      * 将1左移position后，那个位置自然就是1，然后和以前的数据做|，这样，那个位置就替换成1了
      */
     public void add(byte[] bits, int num){
-        bits[getIndex(num)] |= 1 << getPosition(num);
+        bits[getIndex(num)] |= 1 << getPosition(num);  // 将1左移
     }
 
     /**
@@ -50,7 +50,7 @@ public class AddElement {
     }
 
     /**
-     * 重置某一数字对应在bitmap中的值<br/>
+     * 重置某一数字对应在bitmap中的值 也就是删除
      * 对1进行左移，然后取反，最后与byte[index]作与操作。
      */
     public void clear(byte[] bits, int num){
@@ -66,7 +66,7 @@ public class AddElement {
         byte[] array = new byte[8];
         for(int i = 7; i >= 0; i--){
             array[i] = (byte)(b & 1);
-            b = (byte)(b >> 1);
+            b = (byte)(b >> 1);  // b右移一位
         }
         System.out.println(Arrays.toString(array));
         System.out.println();
