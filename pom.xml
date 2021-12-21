@@ -6,6 +6,7 @@
 	<modules>
 		<module>schedule-task</module>
         <module>bitmap</module>
+        <module>ThreadSleep</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
