@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
  * Testcase 1、
  */
 
-public class SampleTest implements Runnable {
+public class SleepAndAwait implements Runnable {
 
     private int number = 10;
 
@@ -36,10 +36,10 @@ public class SampleTest implements Runnable {
     }
 
     public static void main(String[] args) throws Exception {
-        SampleTest sampleTest = new SampleTest();
-        Thread thread = new Thread(sampleTest);
+        SleepAndAwait sleepAndAwait = new SleepAndAwait();
+        Thread thread = new Thread(sleepAndAwait);
         thread.start(); // 执行run里面的代码.
         System.out.println("prepare run second method");
-        sampleTest.secondMethod();
+        sleepAndAwait.secondMethod();
     }
 }
