@@ -3,6 +3,8 @@ import java.math.RoundingMode;
 
 /**
  * 简化BigDecimal计算的小工具类
+ * 浮点数没有办法用二进制精确表示，因此存在精度丢失的风险。
+ * 不过，Java 提供了BigDecimal 来操作浮点数。BigDecimal 的实现利用到了 BigInteger （用来操作大整数）, 所不同的是 BigDecimal 加入了小数位的概念。
  */
 public class BigDecialUtil {
 
