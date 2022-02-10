@@ -1,5 +1,8 @@
+package threadPool;
+
 import java.util.concurrent.*;
 
+//中强制线程池不允许使用 Executors 去创建，而是通过 ThreadPoolExecutor 的方式，
 public class ThreadPool {
     /**
      * 自从Java1.5之后，Java 提供了自己的线程池ThreadPoolExecutor和ScheduledThreadPoolExecutor
