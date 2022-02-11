@@ -1,17 +1,14 @@
 package threadPool;
 
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.concurrent.*;
 
 /**
  * @author jesse.hu
- * @date 2022/2/10 16:43
+ * @date 2022/2/11 09:45
  */
-public class MyThreadPool {
+public class CallableDemo {
     private static final int CORE_POOL_SIZE = 5;
     private static final int MAX_POOL_SIZE = 10;
     private static final int QUEUE_CAPACITY = 100;
@@ -28,16 +25,21 @@ public class MyThreadPool {
                 TimeUnit.SECONDS,
                 new LinkedBlockingQueue<>(QUEUE_CAPACITY),
                 new ThreadPoolExecutor.CallerRunsPolicy());
+        ArrayList<Future<String>> futureList = new ArrayList<>();
+        MyCallable myCallable = new MyCallable();
         for (int i = 0; i < 10; i++) {
-            MyRunnable worker = new MyRunnable("" + i);
-
-            executor.execute(worker);
-
+            Future<String> future = executor.submit(myCallable);
+            // 将返回值future 添加到list、我们可以通过future获得执行 Callable得到到返回值
+            futureList.add(future);
         }
+        for (Future<String> fut : futureList) {
+            try {
+                System.out.println(new Date() + "::" + fut.get());
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+            }
+        }
+
         executor.shutdown();
-        while (!executor.isTerminated()){
-
-        }
-        System.out.println("DONE!");
     }
 }
