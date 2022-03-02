@@ -14,6 +14,8 @@ import java.util.Objects;
 
  */
 public class BigDecimalTest {
+    public int a;
+    private String b;
     public static void main(String[] args) {
         BigDecimal a = new BigDecimal("1.0");
         BigDecimal b = new BigDecimal("0.9");

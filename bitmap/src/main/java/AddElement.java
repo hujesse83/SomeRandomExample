@@ -17,7 +17,7 @@ public class AddElement {
         for(int i = 0; i < n; i++){
             add(bits, i);
         }
-        System.out.println(contains(bits, 11));
+        System.out.println(contains(bits, 1));
         int index = 1;
         for(byte bit : bits){
             System.out.println("-------" + index++ + "-------");

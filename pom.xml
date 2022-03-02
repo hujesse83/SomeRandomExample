@@ -8,6 +8,8 @@
         <module>bitmap</module>
         <module>ThreadSleep</module>
         <module>random</module>
+        <module>jobrunr</module>
+        <module>juc-test</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
