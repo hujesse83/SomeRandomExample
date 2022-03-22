@@ -1,6 +1,8 @@
 package main
 
-import "encoding/hex"
+import (
+	"encoding/hex"
+)
 
 func ByteToBinaryString(data byte) (str string) {
 	var a byte
@@ -23,7 +25,7 @@ func ByteToBinaryString(data byte) (str string) {
 
 func intToByte(i int) []byte {
 	//var h, l uint8 = uint8(i >> 8), uint8(i & 0xff)
-	var h2, h1, h, l uint8 = uint8(i >> 24), uint8(i >> 16), uint8(i >> 8), uint8(i & 0xff)
+	var h2, h1, h, l uint8 = uint8(i >> 24), uint8(i >> 16), uint8(i >> 8), uint8(i & 0xff) // 1、取得低八位 2、保证补码的一致性
 	nbyte := []byte{h2, h1, h, l}
 	return nbyte
 }
@@ -45,3 +47,4 @@ func byteToHex(b []byte) string {
 	}
 	return hexStr
 }
+

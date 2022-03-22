@@ -31,15 +31,15 @@ type BitMap struct {
 
 func NewBitMap(len int64) *BitMap {
 	bm := &BitMap{}
-	bm.length = len
+	bm.length = len // 最大值
 	bm.bitMap = make([]byte, len/8+1)
-	bm.intMap = make([]int, len/40)
+	bm.intMap = make([]int, len/40) // 只有最大值超过40才会创建
 	return bm
 }
 
 func (this *BitMap) Set(loc int64) {
 	if loc > 0 {
-		this.bitMap[(loc-1)/8] = dict[loc%8] | this.bitMap[(loc-1)/8]
+		this.bitMap[(loc-1)/8] = dict2[loc%8] | this.bitMap[(loc-1)/8]
 		this.count++
 		if this.count <= this.length/40 {
 			this.intMap[this.count-1] = int(loc)
